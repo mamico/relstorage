@@ -109,6 +109,30 @@ class ZConfigTests:
         finally:
             db.close()
 
+class _MySQLCfgMixin(object):
+
+    def _relstorage_contents(self):
+        return """
+                <mysql>
+                   db relstoragetest
+                   user relstoragetest
+                   passwd relstoragetest
+                </mysql>
+        """
+
+class HPMySQLDestZODBConvertTests(UseMySQLAdapter, _MySQLCfgMixin, AbstractRSDestZodbConvertTests):
+    pass
+
+class HPMySQLSrcZODBConvertTests(UseMySQLAdapter, _MySQLCfgMixin, AbstractRSSrcZodbConvertTests):
+    pass
+
+
+class HPMySQLTests(UseMySQLAdapter, HistoryPreservingRelStorageTests,
+                   ZConfigTests):
+    @skipOnCI("Travis MySQL goes away error 2006")
+    def check16MObject(self):
+        super(HPMySQLTests,self).check16MObject()
+
 class HPMySQLToFile(UseMySQLAdapter, HistoryPreservingToFileStorage):
     pass
 
