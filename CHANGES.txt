@@ -1,8 +1,6 @@
-1.6.0 (2016-06-09)
-------------------
 
-- Tests: Use the standard library ``doctest`` module for compatibility
-  with newer ``zope.testing`` releases.
+1.6.1 (Unreleased)
+------------------
 
 - zodbconvert: The ``--incremental`` option is supported with a
   FileStorage (or any storage that implements
@@ -15,6 +13,18 @@
   by Jan-Wijbrand Kolman.
 
 .. _`PR 22`: https://github.com/zodb/relstorage/pull/22
+
+- Oracle: Packing should no longer produce LOB errors. This partially
+  reverts the speedups in 1.6.0b2. Reported in `issue 30`_ by Peter
+  Jacobs.
+
+.. _`issue 30`: https://github.com/zodb/relstorage/issues/30
+
+1.6.0 (2016-06-09)
+------------------
+
+- Tests: Use the standard library ``doctest`` module for compatibility
+  with newer ``zope.testing`` releases.
 
 1.6.0b3 (2014-12-08)
 --------------------
