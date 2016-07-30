@@ -20,6 +20,8 @@ from relstorage.tests.hftestbase import HistoryFreeToFileStorage
 from relstorage.tests.hptestbase import HistoryPreservingFromFileStorage
 from relstorage.tests.hptestbase import HistoryPreservingRelStorageTests
 from relstorage.tests.hptestbase import HistoryPreservingToFileStorage
+from relstorage.tests.reltestbase import AbstractRSDestZodbConvertTests
+from relstorage.tests.reltestbase import AbstractRSSrcZodbConvertTests
 import logging
 import os
 import unittest
@@ -129,9 +131,7 @@ class HPMySQLSrcZODBConvertTests(UseMySQLAdapter, _MySQLCfgMixin, AbstractRSSrcZ
 
 class HPMySQLTests(UseMySQLAdapter, HistoryPreservingRelStorageTests,
                    ZConfigTests):
-    @skipOnCI("Travis MySQL goes away error 2006")
-    def check16MObject(self):
-        super(HPMySQLTests,self).check16MObject()
+    pass
 
 class HPMySQLToFile(UseMySQLAdapter, HistoryPreservingToFileStorage):
     pass
