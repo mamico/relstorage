@@ -20,6 +20,9 @@
 
 .. _`issue 30`: https://github.com/zodb/relstorage/issues/30
 
+- Updated the buildout configuration to just run relstorage tests and
+  to select which databases to use at build time.
+
 1.6.0 (2016-06-09)
 ------------------
 
